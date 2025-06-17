@@ -8,12 +8,20 @@
     <style>
         .card{
             display:flex;
+            width: 300px;
             flex-direction: column;
             border:red;
+        }
+        .card>img{
+            width: 100%;
+            height: 250px;
         }
         .card:hover{
             background-color: black;
             color:brown;
+        }
+        .container{
+            display: flex;
         }</style>
 </head>
 <body>
