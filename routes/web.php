@@ -19,7 +19,13 @@ Route::get('/', function () {
 
 Route::get('home', function () {
     return view('home');
-});
+})->name('home');
 Route::get('/lp1', function () {
     return view('lp1');
 });
+Route::get('/index', function () {
+    return view('index');
+});
+Route::get('aboutme', function () {
+    return view('aboutme');
+})->name('aboutme');

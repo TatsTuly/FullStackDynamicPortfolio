@@ -5,279 +5,406 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tuly's Portfolio</title>
     <style>
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, sans-serif;
         }
 
+
         body {
-            background-color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fafafa;
+            color: #333;
             line-height: 1.6;
         }
 
+
         .container {
-            width: 90%;
             max-width: 1000px;
-            margin: 2rem auto;
-            border: 1px solid #e0e0e0;
-            box-shadow: 0 0 10px rgba(0,0,0,0.05);
+            margin: 0 auto;
+            padding: 20px;
         }
 
-        .header {
-            padding: 2rem;
-            display: flex;
-            flex-direction: column;
-            border-bottom: 1px solid #e0e0e0;
+
+        .nav {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 15px 0;
+            margin-bottom: 40px;
+            border-radius: 10px;
         }
 
-        .header-title {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1.5rem;
-        }
-
-        /* Navigation menu styles */
-        .nav-menu {
+        .nav ul {
+            list-style: none;
             display: flex;
             justify-content: center;
-            border-top: 1px solid #f0f0f0;
-            padding-top: 1rem;
-            width: 100%;
+            gap: 30px;
         }
 
-        .menu-item {
-            margin: 0 1.5rem;
-        }
-
-        .menu-item h3 {
-            font-size: 1.1rem;
+        .nav a {
+            color: #333;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 25px;
             font-weight: 500;
-            color: #555;
-            cursor: pointer;
-            transition: color 0.2s;
-            padding: 0.3rem 0;
+            transition: all 0.3s ease;
         }
 
-        .menu-item h3:hover {
-            color: #000;
+        .nav a:hover,
+        .nav a.active {
+            background-color: #667eea;
+            color: white;
         }
 
-        .menu-item h3.active {
-            color: #000;
-            border-bottom: 2px solid #000;
-        }
 
-        .profile-section {
-            display: flex;
-            padding: 2rem;
-        }
-
-        .profile-img {
-            width: 150px;
-            height: 150px;
-            object-fit: cover;
-            border-radius: 50%;
-            margin-right: 1rem;
-        }
-
-        .label {
-            font-size: 0.9rem;
-            color: #777;
-            margin-bottom: 0.5rem;
-        }
-
-        .about-me-section {
-            flex-grow: 1;
-            padding: 0 1rem;
-        }
-
-        .about-me-content {
-            background-color: #f9f9f9;
-            border: 1px solid #e0e0e0;
-            padding: 1.5rem;
-            border-radius: 4px;
-        }
-
-        .about-me-button {
-            background-color: #f9f9f9;
-            border: 1px solid #e0e0e0;
-            padding: 0.5rem 1.5rem;
-            font-size: 1rem;
-            cursor: pointer;
-            border-radius: 4px;
-            margin-bottom: 1rem;
-            display: inline-block;
-        }
-
-        h1 {
-            font-size: 1.8rem;
-            font-weight: normal;
-            font-style: italic;
-        }
-
-        .menu-button {
-            font-size: 1.5rem;
-            background: none;
-            border: none;
-            cursor: pointer;
+        .section {
             display: none;
+            background-color: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
         }
 
-        /* Content sections */
-        .content-section {
-            padding: 2rem;
-            display: none;
-        }
-
-        .content-section.active {
+        .section.active {
             display: block;
         }
 
-        /* Responsive styles */
+
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            display: block;
+            margin: 0 auto 30px auto;
+            object-fit: cover;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+
+        h1 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 10px;
+            color: #667eea;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #667eea;
+            text-align: center;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            margin: 20px 0 10px 0;
+            color: #333;
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: #666;
+            text-align: center;
+        }
+
+        .intro {
+            font-size: 1.2rem;
+            text-align: center;
+            color: #667eea;
+            margin-bottom: 30px;
+        }
+
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .skill-item {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: 500;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-5px);
+        }
+
+
+        .education-item {
+            background-color: #f8f9ff;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+
+        .education-item h4 {
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+
+        .education-item .year {
+            color: #999;
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e1e5e9;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        /* Button */
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            transition: transform 0.3s ease;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        /* Mobile responsive */
         @media (max-width: 768px) {
-            .nav-menu {
-                flex-direction: column;
-                align-items: center;
+            .container {
+                padding: 15px;
             }
 
-            .menu-item {
-                margin: 0.5rem 0;
+            .nav ul {
+                flex-wrap: wrap;
+                gap: 10px;
             }
 
-            .menu-button {
-                display: block;
+            .profile-img {
+                width: 150px;
+                height: 150px;
             }
 
-            .nav-menu.hidden {
-                display: none;
+            h1 {
+                font-size: 2rem;
+            }
+
+            .section {
+                padding: 25px;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="header">
-            <div class="header-title">
-                <h1>Hi, I am Tuly.</h1>
-                <button class="menu-button" id="menuToggle">≡</button>
-            </div>
 
-            <div class="nav-menu" id="navMenu">
-                <div class="menu-item"><h3 id="menuHome" class="active">Home</h3></div>
-                <div class="menu-item"><h3 id="menuEducation">Education</h3></div>
-                <div class="menu-item"><h3 id="menuAbout">About Me</h3></div>
-                <div class="menu-item"><h3 id="menuContact">Contact</h3></div>
-            </div>
+        <nav class="nav">
+            <ul>
+                <li><a href="#" class="nav-link active" data-section="home">Home</a></li>
+                <li><a href="{{route('aboutme')}}">About</a></li>
+                <li><a href="#" class="nav-link" data-section="education">Education</a></li>
+                <li><a href="#" class="nav-link" data-section="skills">Skills</a></li>
+                <li><a href="#" class="nav-link" data-section="contact">Contact</a></li>
+                <li><a href="{{route('home')}}">Index</a></li>
+            </ul>
+        </nav>
+
+
+        <div id="home" class="section active">
+            <img src="{{ asset('assets/images/tuly.jpg') }}" alt="Tuly's Profile Picture" class="profile-img">
+            <h1> Hi,Tuly Here </h1>
+            <p class="intro">Researcher and Developer</p>
+            <p>Welcome to my portfolio! I'm passionate about creating beautiful and functional web experiences.
+               </p>
         </div>
 
-        <!-- Home Section -->
-        <div id="home" class="content-section active">
-            <div class="profile-section">
-                <div>
-                    <img src="{{ asset('assets/images/tuly.jpg') }}" alt="Tuly's Photo" class="profile-img">
-                    <p class="label">Picture</p>
-                </div>
 
-                <div class="about-me-section">
-                    <div class="about-me-button">About me</div>
-                    <div class="about-me-content">
-                        <p>
-                            Text 1
-                        </p>
-                        <p>
-                            Text 2
-                        </p>
-                        <p>
-                            Text 3
-                        </p>
-                        <p>Hello! I'm Tuly, a professional web developer with expertise in creating dynamic, responsive web applications. I specialize in full-stack development using modern technologies and frameworks to deliver high-quality digital solutions.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Education Section -->
-        <div id="education" class="content-section">
-            <h2>My Education</h2>
-            <div style="margin-top: 1.5rem;">
-                <div style="margin-bottom: 2rem;">
-                    <h3>Master of Computer Science</h3>
-                    <p style="color: #666;">University of Technology (2022-2024)</p>
-                    <p>Specialized in Web Technologies and Cloud Computing with focus on modern application development.</p>
-                </div>
-                <div style="margin-bottom: 2rem;">
-                    <h3>Bachelor of Computer Science</h3>
-                    <p style="color: #666;">State University (2018-2022)</p>
-                    <p>Graduated with honors, focused on software engineering and database systems.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- About Me Section -->
-        <div id="about" class="content-section">
+        <div id="about" class="section">
             <h2>About Me</h2>
-            <div style="margin-top: 1.5rem;">
-                <p>I am a passionate full-stack developer with over 5 years of experience building web applications. My expertise includes Laravel, Vue.js, React, and various other modern technologies.</p>
-                <p style="margin-top: 1rem;">I enjoy solving complex problems and creating efficient, scalable solutions for my clients. My approach focuses on clean code, performance optimization, and intuitive user experiences.</p>
-                <p style="margin-top: 1rem;">When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or enjoying outdoor activities.</p>
+            <p>I'm a dedicated web developer with a passion for creating innovative digital solutions.
+               My journey in technology has been driven by curiosity and a desire to build meaningful applications
+               that make a difference.</p>
+
+
+            <p>I believe in the power of clean, efficient code and user-centered design. Every project I work on
+               is an opportunity to learn something new and create something valuable.</p>
+        </div>
+
+
+        <div id="education" class="section">
+            <h2>Education</h2>
+
+            <div class="education-item">
+                <h4>Bachelor of Science in Computer Science</h4>
+                <div class="year">2022 - 2025</div>
+                <p>Daffodil International University - Major in Computer Engineering </p>
+            </div>
+
+            <div class="education-item">
+                <h4>Full Stack Web Development Certification</h4>
+                <div class="year">2023</div>
+                <p>Completed comprehensive certification covering HTML, CSS, JavaScript, PHP, Laravel,
+                   and modern web development practices.</p>
+            </div>
+
+            <div class="education-item">
+                <h4>Advanced JavaScript & Frameworks</h4>
+                <div class="year">2024</div>
+                <p>Specialized training in React, Vue.js, and Node.js development with emphasis on
+                   building scalable web applications.</p>
+            </div>
+        </div>
+
+        <!-- Skills Section -->
+        <div id="skills" class="section">
+            <h2>Skills</h2>
+
+            <h3>Frontend Technologies</h3>
+            <div class="skills-grid">
+                <div class="skill-item">HTML5</div>
+                <div class="skill-item">CSS3</div>
+                <div class="skill-item">JavaScript</div>
+                <div class="skill-item">React</div>
+                <div class="skill-item">Vue.js</div>
+                <div class="skill-item">Bootstrap</div>
+            </div>
+
+            <h3>Backend Technologies</h3>
+            <div class="skills-grid">
+                <div class="skill-item">PHP</div>
+                <div class="skill-item">Laravel</div>
+                <div class="skill-item">Node.js</div>
+                <div class="skill-item">MySQL</div>
+                <div class="skill-item">MongoDB</div>
+                <div class="skill-item">REST APIs</div>
+            </div>
+
+            <h3>Tools & Others</h3>
+            <div class="skills-grid">
+                <div class="skill-item">Git</div>
+                <div class="skill-item">VS Code</div>
+                <div class="skill-item">Figma</div>
+                <div class="skill-item">Docker</div>
+                <div class="skill-item">AWS</div>
+                <div class="skill-item">Agile</div>
             </div>
         </div>
 
         <!-- Contact Section -->
-        <div id="contact" class="content-section">
-            <h2>Contact Me</h2>
-            <div style="margin-top: 1.5rem;">
-                <p><strong>Email:</strong> tuly@example.com</p>
-                <p><strong>Phone:</strong> (123) 456-7890</p>
-                <p style="margin-top: 1rem;">Connect with me on social media:</p>
-                <div style="margin-top: 0.5rem; display: flex; gap: 1rem;">
-                    <a href="#" style="text-decoration: none; color: #333;">LinkedIn</a>
-                    <a href="#" style="text-decoration: none; color: #333;">GitHub</a>
-                    <a href="#" style="text-decoration: none; color: #333;">Twitter</a>
+        <div id="contact" class="section">
+            <h2>Get In Touch</h2>
+            <p>I'd love to hear from you! Whether you have a project in mind, want to collaborate,
+               or just want to say hello, feel free to reach out.</p>
+
+            <form class="contact-form">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Your Name" required>
                 </div>
-            </div>
+
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Your Email" required>
+                </div>
+
+                <div class="form-group">
+                    <input type="text" name="subject" placeholder="Subject" required>
+                </div>
+
+                <div class="form-group">
+                    <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
+                </div>
+
+                <button type="submit" class="btn">Send Message</button>
+            </form>
         </div>
     </div>
 
     <script>
+        // JavaScript for Navigation
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Remove active class from all nav links
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+            });
+
+            // Show the selected section
+            document.getElementById(sectionId).classList.add('active');
+        }
+
+        // Add click event listeners to navigation links
         document.addEventListener('DOMContentLoaded', function() {
-            const menuToggle = document.getElementById('menuToggle');
-            const navMenu = document.getElementById('navMenu');
-            const menuItems = document.querySelectorAll('.menu-item h3');
-            const contentSections = document.querySelectorAll('.content-section');
+            const navLinks = document.querySelectorAll('.nav-link');
 
-            // Toggle menu visibility on mobile
-            if (menuToggle) {
-                menuToggle.addEventListener('click', function() {
-                    navMenu.classList.toggle('hidden');
-                });
-            }
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
 
-            // Handle menu item clicks
-            menuItems.forEach(item => {
-                item.addEventListener('click', function() {
-                    // Set active menu item
-                    menuItems.forEach(mi => mi.classList.remove('active'));
+                    // Remove active class from all links
+                    navLinks.forEach(l => l.classList.remove('active'));
+
+                    // Add active class to clicked link
                     this.classList.add('active');
 
-                    // Show corresponding section
+                    // Get the section to show
                     const sectionId = this.getAttribute('data-section');
-                    contentSections.forEach(section => {
-                        section.classList.remove('active');
-                    });
-                    document.getElementById(sectionId).classList.add('active');
-
-                    // Hide mobile menu after selection
-                    if (window.innerWidth <= 768) {
-                        navMenu.classList.add('hidden');
-                    }
+                    showSection(sectionId);
                 });
+            });
+
+            // Contact form submission
+            const contactForm = document.querySelector('.contact-form');
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for your message! I\'ll get back to you soon.');
+                contactForm.reset();
             });
         });
     </script>
-    <script src="{{asset('assets/js/script.js')}}"></script>
 </body>
 </html>
