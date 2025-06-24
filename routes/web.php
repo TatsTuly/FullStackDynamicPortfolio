@@ -13,19 +13,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+
+
+Route::get('/skill', function () {
+    return view('skill');
+});
+Route::get('/contact', function () {
+    return view('contact');
+});
+Route::get('/aboutme', function () {
+    return view('aboutme');
+});
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('home', function () {
-    return view('home');
-})->name('home');
-Route::get('/lp1', function () {
-    return view('lp1');
+Route::get('/education', function () {
+    return view('education');
 });
-Route::get('/index', function () {
-    return view('index');
-});
-Route::get('aboutme', function () {
-    return view('aboutme');
-})->name('aboutme');
+
