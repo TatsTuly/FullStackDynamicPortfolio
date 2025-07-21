@@ -526,7 +526,7 @@
                         <div class="education-header">
                             <div>
                                 <h3 class="education-title">Higher Secondary Certificate (HSC)</h3>
-                                <div class="education-institution">Adamjee Cantonment College</div>
+                                <div class="education-institution">Narayanganj Govt Womens College</div>
                             </div>
                             <div class="education-period">2020 - 2022</div>
                         </div>
