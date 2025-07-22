@@ -1,7 +1,9 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthenticationController;
+ 
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,3 +34,9 @@ Route::get('/', function () {
 Route::get('/education', function () {
     return view('education');
 });
+Route::get('/login', function () {
+    return view('auth.login');
+});
+
+Route::post('/login', [AuthenticationController::class, 'login
+']);
