@@ -34,9 +34,23 @@ Route::get('/', function () {
 Route::get('/education', function () {
     return view('education');
 });
+
+//login 
 Route::get('/login', function () {
     return view('auth.login');
-});
+})->name('login');
 
-Route::post('/login', [AuthenticationController::class, 'login
-']);
+Route::post('/login', [AuthenticationController::class, 'login']);
+
+//register
+
+Route::get('/registration', function () {
+    return view('auth.registration');
+})->name('registration');
+Route::post('/registration', [AuthenticationController::class, 'registration']);
+
+//dashboard
+
+Route::middleware('auth')->group(function(){
+    Route::get('admin/dashboard',[Controller::class,'dashboard']);
+});
